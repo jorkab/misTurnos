@@ -10,8 +10,8 @@
     "pug": "2.0.4"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
     "eslint-config-keystone": "^3.0.0",
+    "eslint": "4.18.2",
     "eslint-plugin-react": "^5.1.1"
   },
   "scripts": {
