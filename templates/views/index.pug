@@ -1,0 +1,69 @@
+extends ../layouts/default
+
+block content
+	.container: .jumbotron
+		//- img(src='/images/logo.svg', width='160')
+		//- h1 Welcome
+		//- p This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.
+		//- p It includes the latest versions of
+		//- 	| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
+		//- 	| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
+		//- p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
+		//- hr
+		//- if user && user.canAccessKeystone
+		//- 	p
+		//- 		a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
+		//- else
+		//- 	p We have created a default Admin user for you with the email <strong>user@keystonejs.com</strong> and the password <strong>admin</strong>.
+		//- 	p
+		//- 		a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
+		//- 		|  to use the Admin UI.
+		//- hr
+		//- p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
+		//- 	| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+		.selectores
+			button.selectorTurno.manana(type="button" data-selector='manana') M
+			button.selectorTurno.tarde(type="button" data-selector='tarde') T
+			button.selectorTurno.noche(type="button" data-selector='noche') N
+			button.selectorTurno.libre(type="button" data-selector='libre') L	
+			button.selectorTurno.libreS(type="button" data-selector="libreS") LS
+			button.selectorTurno.libreF(type="button" data-selector="libreF") LF
+			button.selectorTurno.vacacion(type="button" data-selector="vacacion") V
+		.tableHeader
+			.headerElement
+				form(method='get')
+					input(type="text" name="anio" value=anio hidden)
+					input(type="text" name="mes" value=mes-2 hidden)
+					button.prev(type= "submit" value = "Anterior") &#10094;
+			.headerElement
+				p.titulo #{mesText}-#{anio}
+			.headerElement
+				form(method="get")
+					input(type="text" name="anio" value=anio hidden)
+					input(type="text" name="mes" value=mes hidden)
+					button.next(type= "submit" value = "Siguiente") &#10095;
+		table
+			tr
+				th L
+				th M
+				th X
+				th J
+				th V
+				th S
+				th D
+			tr
+			-var i = 1;
+			-var j = 1;
+			while i <= primerDiaSemana-1+utlimoDiaMes
+				if i < primerDiaSemana
+					td
+				else
+					td.diaCalendario(class=turnos[j] data-dia=`${j}-${mes}-${anio}` data-selector=turnos[j]) #{j}
+					-j++
+					if i%7 === 0
+						tr
+				-i++
+		.footer
+			button.enviar(type="button" onclick="enviarCalendario()") Enviar	
+	script
+		include index.js

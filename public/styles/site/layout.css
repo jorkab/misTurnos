@@ -1,0 +1,30 @@
+#header {
+  margin-top: 30px;
+}
+#footer {
+  margin-top: 30px;
+  border-top: 1px solid #eeeeee;
+  padding-top: 30px;
+  color: #777777;
+}
+.gallery-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+button.selectorTurno.manana,
+td.diaCalendario.manana {
+  background-color: #4CAF50;
+}
+button.selectorTurno.tarde,
+td.diaCalendario.tarde {
+  background-color: #008CBA;
+}
+button.selectorTurno.noche,
+td.diaCalendario.noche {
+  background-color: #555555;
+}
+button.selectorTurno.libre,
+td.diaCalendario.libre {
+  background-color: #f44336;
+}
